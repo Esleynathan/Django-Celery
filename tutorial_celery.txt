@@ -1,0 +1,57 @@
+​# Instalar sistema de filas
+
+# ( Redis ) ou RabbitMQ
+
+-> sudo apt install redis
+
+-> redis-cli --version
+
+-> sudo systemctl status redis
+
+-> sudo systemctl start redis-server
+
+-> redis-cli
+
+    -> ping
+
+#sudo systemctl stop redis
+
+-> python3 -m venv venv
+
+-> source venv/bin/activate
+
+-> pip install celery
+
+-> pip install redis
+
+'''
+
+    #tarefas.py
+
+    from celery import Celery
+
+    app = Celery(broker='redis://127.0.0.1:6379//')
+
+    @app.task
+
+    def exibir():
+
+        return 'teste'
+
+'''
+
+'''
+
+    #app.py
+
+    from tarefas import exibir
+
+    exibir.delay()
+
+'''
+
+-> celery -A tarefas worker --loglevel=INFO 
+
+-> pip install flower
+
+-> celery -A tarefas flower  --address=127.0.0.1 --port=5566
