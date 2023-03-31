@@ -55,3 +55,17 @@
 -> pip install flower
 
 -> celery -A tarefas flower  --address=127.0.0.1 --port=5566
+
+
+-> celery -A tarefas flower  --address=127.0.0.1 --port=5566 --basic_auth=esley:nathan
+
+
+'''
+configurações
+
+bind -> te da acesso ao wrapper
+max_retry -> Número de tentativas máximas caso aconteça um erro
+default_retry_delay -> Tempo para tentar novamente (em segundos)
+autoretry_for = (ZeroDivisionError)
+'''
+
