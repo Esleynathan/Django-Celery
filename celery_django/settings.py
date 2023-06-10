@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'exemplo',
     'django_celery_results',
+    'django_celery_beat',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +124,9 @@ CELERY_BROKER_URL = 'REDIS://127.0.0.1:6379/0'
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_BACKEND = 'django-db'
+CELERY_TIMEZONE = 'America/Sao_Paulo'
+
+# Celery Beat
+
+CELERY_BEAT_SCHEDULAR = "django_celery_beat.schedulers:databaseScheduler"
+
